@@ -1,0 +1,27 @@
+
+# Official docker image.
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build-staging:
+  stage: build
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:staging" -f docker/Dockerfile .
+    - docker push "$CI_REGISTRY_IMAGE:staging"
+  only:
+    - staging
+
+build-production:
+  stage: build
+  script:
+    - docker pull "$CI_REGISTRY_IMAGE:staging"
+    - docker tag "$CI_REGISTRY_IMAGE:staging" "$CI_REGISTRY_IMAGE:production"
+    - docker push "$CI_REGISTRY_IMAGE:production"    
+  only:
+    - production
+

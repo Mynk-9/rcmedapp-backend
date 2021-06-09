@@ -1,0 +1,89 @@
+{
+	"variables": [],
+	"info": {
+		"name": "boilerplate",
+		"_postman_id": "5dec02dc-fedb-b7bf-8b73-2de45f8efc39",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Register a user",
+					"request": {
+						"url": "http://localhost:4192/api/v1/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "foo@bar.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "foobarcar",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "somepass",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://localhost:4192/api/v1/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "foo@bar.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "foobarcar",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,17 @@
+version: '2'
+
+# Define the services/containers to be run
+services:
+  generic-articles-api: #name of your service
+    build: ./ # specify the directory of the Dockerfile
+    ports:
+      - "4192:4192" #specify ports forwarding
+    links:
+      - database # link this service to the database service
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+
+  database: # name of the service
+    image: postgres # specify image to build container from
