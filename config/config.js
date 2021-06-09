@@ -1,10 +1,10 @@
 var db = {
 	staging: {
-		DATABASE_HOST: "ec2-3-215-83-17.compute-1.amazonaws.com",
-		DATABASE_NAME: "d71fhmjbsb4932",
-		DATABASE_USERNAME: "teworlnpybzxbp",
+		DATABASE_HOST: "ec2-34-193-112-164.compute-1.amazonaws.com",
+		DATABASE_NAME: "ddb53u17gb87hr",
+		DATABASE_USERNAME: "gcawgyeclccptc",
 		DATABASE_PASSWORD:
-			"9e6d2e9286d27d42631dac217ba2d2be31d336ee01f2c29a2a141afb2b64f55a",
+			"62c1eedfe5834a41f9ebfb9e92eae40407eb168adbf0e10614eee9858ae96b77",
 		DATABASE_PORT: 5432,
 		DATABASE_DIALECT: "postgres",
 		NODE_ENV: process.env.NODE_ENV || "staging",
@@ -24,7 +24,7 @@ var db = {
 
 	rg: {
 		DATABASE_HOST: process.env.DATABASE_HOST || "localhost",
-		DATABASE_NAME: process.env.DATABASE_NAME || "serveit",
+		DATABASE_NAME: process.env.DATABASE_NAME || "rcmedapp",
 		DATABASE_USERNAME: process.env.DATABASE_USERNAME || "postgres",
 		DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || "kani",
 		DATABASE_PORT: process.env.DATABASE_PORT || 5432,

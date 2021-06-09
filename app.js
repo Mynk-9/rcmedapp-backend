@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
   console.log('Welcome to the app');
   res.status(200).json({
     success: true,
-    message: 'Welcome to serve-it backend',
+    message: 'Welcome to medical reminder app',
   });
 });
 
