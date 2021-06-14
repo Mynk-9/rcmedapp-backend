@@ -1,56 +1,26 @@
-var config = require("../../config/config");
-
 module.exports = (sequelize, DataTypes) => {
   const login = sequelize.define(
     "login",
     {
       id: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true,
+        defaultValue: DataTypes.UUIDV4,
       },
       firebase_id: { type: DataTypes.TEXT },
-      org_id: { type: DataTypes.BIGINT },
-      role: { type: DataTypes.TEXT, defaultValue: "user" },
-      account_type: {
-        type: DataTypes.TEXT,
-        defaultValue: "standard_login_account",
-      },
-
-      first_name: { type: DataTypes.TEXT },
-      middle_name: { type: DataTypes.TEXT },
-      last_name: { type: DataTypes.TEXT },
-
+      name: { type: DataTypes.TEXT },
+      age: { type: DataTypes.INTEGER },
       email: { type: DataTypes.TEXT },
       mobile: { type: DataTypes.TEXT },
-      password: { type: DataTypes.TEXT },
-      salt: { type: DataTypes.TEXT },
       new_user: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
-
-      sex: { type: DataTypes.INTEGER },
-      /**
-       * 1: male
-       * 2: female
-       * 3: other
-       */
+      sex: { type: DataTypes.TEXT },
       address: { type: DataTypes.JSONB },
-      other_data: { type: DataTypes.JSONB },
-
-      // Verifications
-      email_verified: { type: DataTypes.DATE },
-      mobile_verified: { type: DataTypes.DATE },
-      app_verified: { type: DataTypes.DATE },
-
-      // login_secret: {
-      //     type: DataTypes.UUID,
-      //     allowNull: false,
-      //     defaultValue: DataTypes.UUIDV4
-      // },
-
+      city: { type: DataTypes.TEXT },
+      total_profile: { type: DataTypes.INTEGER },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,

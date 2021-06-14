@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const profile = sequelize.define(
-    "profile",
+  const medicineReminder = sequelize.define(
+    "medicineReminder",
     {
       id: {
         type: DataTypes.UUID,
@@ -8,10 +8,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
       },
-      name: { type: DataTypes.TEXT },
-      age: { type: DataTypes.INTEGER },
-      sex: { type: DataTypes.TEXT },
-      isMaster: { type: DataTypes.BOOLEAN, defaultValue: false },
+      medicine_name: { type: DataTypes.TEXT },
+      medicine_type: { type: DataTypes.TEXT },
+      timing: { type: DataTypes.DATE },
+      duration: { type: DataTypes.TEXT },
+      dosage: { type: DataTypes.TEXT },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -25,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return profile;
+  return medicineReminder;
 };

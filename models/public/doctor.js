@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const profile = sequelize.define(
-    "profile",
+  const doctor = sequelize.define(
+    "doctor",
     {
       id: {
         type: DataTypes.UUID,
@@ -8,10 +8,16 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
       },
+      firebase_id: { type: DataTypes.TEXT },
       name: { type: DataTypes.TEXT },
       age: { type: DataTypes.INTEGER },
-      sex: { type: DataTypes.TEXT },
-      isMaster: { type: DataTypes.BOOLEAN, defaultValue: false },
+      email: { type: DataTypes.TEXT },
+      bio: { type: DataTypes.TEXT },
+      sex: { type: DataTypes.INTEGER },
+      address: { type: DataTypes.JSONB },
+      city: { type: DataTypes.TEXT },
+      primary_practice: { type: DataTypes.TEXT },
+      secondary_practice: { type: DataTypes.TEXT },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -25,5 +31,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return profile;
+  return doctor;
 };

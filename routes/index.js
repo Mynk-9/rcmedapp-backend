@@ -1,15 +1,24 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 // var themes = require("../controllers/themeCtrl");
 // var atcStrip = require("../controllers/atcStripCtrl");
-var login = require('../controllers/loginCtrl');
-var atc = require('../controllers/atc-strips-no-cache');
-var crud = require('../controllers/crud');
-const verify = require('../functions/verifyFunc');
+var login = require("../controllers/loginCtrl");
+var atc = require("../controllers/atc-strips-no-cache");
+var crud = require("../controllers/crud");
+const verify = require("../functions/verifyFunc");
 // // Login and onboarding
 // router.post('/register', login.register);
-router.post('/login', login.login);
+router.post("/login", login.login);
+router.post("/addProfile", verify.user, login.addProfile);
+router.post("/addMasterProfile", verify.user, login.addMasterProfile);
+
+router.put("/profile/:profile_id", verify.user, login.updateProfile);
+
+router.get("/allProfiles", verify.user, login.getAllProfiles);
+router.get("/profile/:id", verify.user, login.getProfile);
+
+router.delete("/profile/:profile_id", verify.user, login.removeProfile);
 
 // // ATC and the ATC Strips
 // router.get('/atc/strips', atc.getAll);
@@ -22,7 +31,7 @@ router.post('/login', login.login);
 // router.get("/get/user/team", login.getUserTeams);
 // router.get('/search/user', login.userFullTs);
 
-router.post('/create/kv', verify.user, crud.create);
-router.get('/get/kv', crud.get);
+router.post("/create/kv", verify.user, crud.create);
+router.get("/get/kv", crud.get);
 
 module.exports = router;
