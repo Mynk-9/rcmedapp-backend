@@ -69,7 +69,10 @@ db.profile.belongsTo(db.login, {
   onDelete: "CASCADE",
   foreignKey: "login_id",
 });
-db.medicineReminder.belongsTo(db.login, { onDelete: "CASCADE" });
-db.login.hasMany(db.medicineReminder, { onDelete: "CASCADE" });
+db.medicineReminder.belongsTo(db.profile, {
+  onDelete: "CASCADE",
+  foreignKey: "profile_id",
+});
+db.profile.hasMany(db.medicineReminder, { onDelete: "CASCADE" });
 
 module.exports = db;

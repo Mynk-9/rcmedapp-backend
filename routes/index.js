@@ -4,9 +4,11 @@ var router = express.Router();
 // var themes = require("../controllers/themeCtrl");
 // var atcStrip = require("../controllers/atcStripCtrl");
 var login = require("../controllers/loginCtrl");
+var medicine = require("../controllers/medicineCtrl");
 var atc = require("../controllers/atc-strips-no-cache");
 var crud = require("../controllers/crud");
 const verify = require("../functions/verifyFunc");
+const medicineReminder = require("../models/public/medicineReminder");
 // // Login and onboarding
 // router.post('/register', login.register);
 router.post("/login", login.login);
@@ -19,6 +21,16 @@ router.get("/allProfiles", verify.user, login.getAllProfiles);
 router.get("/profile/:id", verify.user, login.getProfile);
 
 router.delete("/profile/:profile_id", verify.user, login.removeProfile);
+
+router.post("/addMedicine", verify.user, medicine.addMedicine);
+router.put("/medicine/:medicine_id", verify.user, medicine.updateMedicine);
+router.delete("/medicine/:medicine_id", verify.user, medicine.deleteMedicine);
+router.get(
+  "/medicines/:profile_id",
+  verify.user,
+  medicine.getAllMedicineByProfileId
+);
+router.get("/medicine/:medicine_id", verify.user, medicine.getMedicineById);
 
 // // ATC and the ATC Strips
 // router.get('/atc/strips', atc.getAll);
